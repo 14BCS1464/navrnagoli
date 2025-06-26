@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Navrangoli</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 20s infinite linear;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            left: 35%;
+            animation-delay: 4s;
+        }
+
+        .shape:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            left: 50%;
+            animation-delay: 6s;
+        }
+
+        .shape:nth-child(5) {
+            width: 90px;
+            height: 90px;
+            left: 70%;
+            animation-delay: 8s;
+        }
+
+        .shape:nth-child(6) {
+            width: 110px;
+            height: 110px;
+            left: 85%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInScale 1.2s ease-out;
+        }
+
+        .header h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #fff, #f8f9fa, #e9ecef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255,255,255,0.5);
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .header p {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 35px;
+            margin-bottom: 60px;
+        }
+
+        .language-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: slideInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .language-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .language-card:hover::before {
+            left: 100%;
+        }
+
+        .language-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24, #e056fd);
+            border-radius: 25px 25px 0 0;
+        }
+
+        .language-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.2),
+                0 0 50px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        .flag-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .flag {
+            font-size: 2.5rem;
+            margin-right: 20px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .message {
+            line-height: 1.9;
+            color: #ffffff;
+            font-size: 1.15rem;
+            text-align: justify;
+            font-weight: 400;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.2em;
+            text-shadow: none;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 5px rgba(255, 107, 107, 0.5));
+            }
+            to {
+                filter: drop-shadow(0 0 15px rgba(255, 107, 107, 0.8));
+            }
+        }
+
+        .signature {
+            text-align: right;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 50px 30px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 30px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .footer h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #ffd93d, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            animation: colorShift 3s ease-in-out infinite;
+        }
+
+        @keyframes colorShift {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(180deg); }
+        }
+
+        .footer p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .footer .subtitle {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .language-card:nth-child(1) { animation-delay: 0.1s; }
+        .language-card:nth-child(2) { animation-delay: 0.2s; }
+        .language-card:nth-child(3) { animation-delay: 0.3s; }
+        .language-card:nth-child(4) { animation-delay: 0.4s; }
+        .language-card:nth-child(5) { animation-delay: 0.5s; }
+        .language-card:nth-child(6) { animation-delay: 0.6s; }
+        .language-card:nth-child(7) { animation-delay: 0.7s; }
+        .language-card:nth-child(8) { animation-delay: 0.8s; }
+        .language-card:nth-child(9) { animation-delay: 0.9s; }
+        .language-card:nth-child(10) { animation-delay: 1.0s; }
+
+        .heart-decoration {
+            display: inline-block;
+            color: #ff6b6b;
+            font-size: 1.2em;
+            margin: 0 10px;
+            animation: heartbeat 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.6));
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.6));
+            }
+            50% { 
+                transform: scale(1.2);
+                filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.9));
+            }
+        }
+
+        .sparkle {
+            position: absolute;
+            color: #ffd93d;
+            font-size: 1.5rem;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        .sparkle:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
+        .sparkle:nth-child(3) { bottom: 30%; left: 10%; animation-delay: 2s; }
+        .sparkle:nth-child(4) { bottom: 15%; right: 25%; animation-delay: 1.5s; }
+
+        @keyframes sparkle {
+            0%, 100% { 
+                opacity: 0;
+                transform: scale(0) rotate(0deg);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1) rotate(180deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+                letter-spacing: -1px;
+            }
+            
+            .header p {
+                font-size: 1.1rem;
+            }
+            
+            .languages-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .language-card {
+                padding: 25px;
+                border-radius: 20px;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .footer h2 {
+                font-size: 2rem;
+            }
+            
+            .footer p {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Scroll animations */
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .language-card:nth-child(odd) {
+            animation: slideInFromLeft 0.8s ease-out;
+        }
+
+        .language-card:nth-child(even) {
+            animation: slideInFromRight 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="sparkle">✨</div>
+    <div class="sparkle">⭐</div>
+    <div class="sparkle">💫</div>
+    <div class="sparkle">✨</div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🙏 Thank You <span class="heart-decoration">❤️</span> धन्यवाद</h1>
+            <p>A heartfelt message in the beautiful languages of India</p>
+        </div>
+
+        <div class="languages-grid">
+            <div class="language-card">
+                <div class="flag-title">
+                    <span class="flag">🇬🇧</span>
+                    <span>English</span>
+                </div>
+                <div class="message">
+                    Dear Customer, Thank you so much for your order! We are just starting out, and your support means the world to us. Every order gives us hope and motivation. <span class="highlight">Your trust is our biggest strength.</span>
+                </div>
+                <div class="signature">– Kusum / Navrangoli</div>
+            </div>
+
+            <div class="language-card">
+                <div class="flag-title">
+                    <span class="flag">🇮🇳</span>
+                    <span>Hindi (हिंदी)</span>
+                </div>
+                <div class="message">
+                    प्रिय ग्राहक, हमसे खरीदारी करने के लिए आपका दिल से धन्यवाद! हम अभी अपनी छोटी सी शुरुआत कर रहे हैं, और आपका समर्थन हमारे लिए बहुत खास है। हर एक ऑर्डर हमारे लिए एक नई उम्मीद है। <span class="highlight">आपका भरोसा ही हमारी सबसे बड़ी ताकत है।</span>
+                </div>
+                <div class="signature">– कुसुम / नवरंगोली</div>
+            </div>
+
+            <div class="language-card">
+                <div class="flag-title">
+                    <span class="flag">🇮🇳</span>
+                    <span>Marathi (मराठी)</span>
+                </div>
+                <div class="message">
+                    प्रिय ग्राहक, आमच्याकडून खरेदी केल्याबद्दल मनःपूर्वक धन्यवाद! आमची ही सुरुवात आहे आणि तुमचा पाठिंबा आमच्यासाठी खूप महत्त्वाचा आहे. प्रत्येक ऑर्डर आमच्यासाठी नवी आशा आहे. <span class="highlight">तुमचा विश्वासच आमची खरी ताकद आहे.</span>
+                </div>
+                <div class="signature">– कुसुम / नवरंगोली</div>
+            </div>
+
+            <div class="language-card">
+                <div class="flag-title">
+                    <span class="flag">🇮🇳</span>
+                    <span>Gujarati (ગુજરાતી)</span>
+                </div>
+                <div class="message">
+                    પ્રિય ગ્રાહક, અમારું ઉત્પાદન ખરીદવા માટે ખુબ ખુબ આભાર! અમે નવી શરૂઆત કરી છે અને તમારો સહયોગ અમારાં માટે ખૂબ જ મહત્વનો છે. દરેક ઓર્ડર અમારું ઉત્સાહ વધારશે. <span class="highlight">તમારું વિશ્વાસ અમારી સૌથી મોટી શક્તિ છે.</span>
+                </div>
+                <div class="signature">– કુસુમ / નવરંગોલી</div>
+            </div>
+
+            <div class="language-card">
+                <div class="flag-title">
+                    <span class="flag">🇮🇳</span>
+                    <span>Punjabi (ਪੰਜਾਬੀ)</span>
+                </div>
+                <div class="message">
+                    ਪਿਆਰੇ ਗਾਹਕ ਜੀ, ਸਾਡੇ ਕੋਲੋਂ ਖਰੀਦ ਕਰਨ ਲਈ ਤੁਹਾਡਾ ਧੰਨਵਾਦ! ਅਸੀਂ ਹੁਣੇ ਆਪਣੀ ਸ਼ੁਰੂਆਤ ਕੀਤੀ ਹੈ, ਤੇ ਤੁਹਾਡਾ ਸਾਥ ਸਾਡੀ ਹੌਸਲਾ ਅਫਜਾਈ ਕਰਦਾ ਹੈ। <span class="highlight">ਤੁਹਾਡਾ ਭਰੋਸਾ ਸਾਡੀ ਸਭ ਤੋਂ ਵੱਡੀ ਤਾਕਤ ਹੈ।</span>
+                </div>
+                <div class="signature">– ਕੁਸੁਮ / ਨਵਰੰਗੋਲੀ</div>
+            </div>
+
+            <div class="language-card">
+                <div class="flag-title">
+                    <span class="flag">🇮🇳</span>
+                    <span>Tamil (தமிழ்)</span>
+                </div>
+                <div class="message">
+                    அன்பான வாடிக்கையாளருக்கு, எங்களை நம்பி உங்களின் ஆர்டர் வழங்கியதற்கு நன்றி! நாங்கள் இப்போது தான் துவங்குகிறோம், உங்கள் ஆதரவு எங்களுக்கு மிக முக்கியமானது. <span class="highlight">உங்கள் நம்பிக்கையே எங்கள் பலம்.</span>
+                </div>
+                <div class="signature">– Kusum / Navrangoli</div>
+            </div>
+
+            <div class="language-card">
+                <div class="flag-title">
+                    <span class="flag">🇮🇳</span>
+                    <span>Telugu (తెలుగు)</span>
+                </div>
+                <div class="message">
+                    ప్రియమైన కస్టమర్, మా నుంచి కొనుగోలు చేసినందుకు మీకు హృదయపూర్వక ధన్యవాదాలు! మేము ఇప్పుడే ప్రారంభించాము, మీరు చూపిన మద్దతు మాకు ఎంతో ముఖ్యం. <span class="highlight">మీ నమ్మకమే మా బలం.</span>
+                </div>
+                <div class="signature">– Kusum / Navrangoli</div>
+            </div>
+
+            <div class="language-card">
+                <div class="flag-title">
+                    <span class="flag">🇮🇳</span>
+                    <span>Bengali (বাংলা)</span>
+                </div>
+                <div class="message">
+                    প্রিয় গ্রাহক, আমাদের থেকে কেনাকাটার জন্য আপনাকে আন্তরিক ধন্যবাদ! আমরা নতুন করে শুরু করেছি, এবং আপনার সমর্থন আমাদের জন্য অনেক গুরুত্বপূর্ণ। <span class="highlight">আপনার বিশ্বাসই আমাদের সবচেয়ে বড় শক্তি।</span>
+                </div>
+                <div class="signature">– Kusum / Navrangoli</div>
+            </div>
+
+            <div class="language-card">
+                <div class="flag-title">
+                    <span class="flag">🇮🇳</span>
+                    <span>Kannada (ಕನ್ನಡ)</span>
+                </div>
+                <div class="message">
+                    ಪ್ರಿಯ ಗ್ರಾಹಕರೇ, ನಮ್ಮಿಂದ ಖರೀದಿ ಮಾಡಿದಕ್ಕಾಗಿ ತುಂಬಾ ಧನ್ಯವಾದಗಳು! ನಾವು ಹೊಸದಾಗಿ ಪ್ರಾರಂಭಿಸಿದ್ದೇವೆ, ನಿಮ್ಮ ಬೆಂಬಲ ನಮ್ಮಿಗೆ ಬಹುಮೌಲ್ಯವಾಗಿದೆ. <span class="highlight">ನಿಮ್ಮ ನಂಬಿಕೆಯೇ ನಮ್ಮ ಶಕ್ತಿ.</span>
+                </div>
+                <div class="signature">– Kusum / Navrangoli</div>
+            </div>
+
+            <div class="language-card">
+                <div class="flag-title">
+                    <span class="flag">🇮🇳</span>
+                    <span>Malayalam (മലയാളം)</span>
+                </div>
+                <div class="message">
+                    പ്രിയ ഉപഭോക്താവേ, ഞങ്ങളിൽ നിന്നുള്ള നിങ്ങളുടെ ഓർഡറിന് ഹൃദയം നിറഞ്ഞ നന്ദി! നാം ഇപ്പോഴാണ് തുടങ്ങുന്നത്, നിങ്ങളുടെ പിന്തുണ ഞങ്ങൾക്ക് വിലമതിക്കാനാകാത്തതാണ്. <span class="highlight">നിങ്ങളുടെ വിശ്വാസമാണ് ഞങ്ങളുടെ ശക്തി.</span>
+                </div>
+                <div class="signature">– Kusum / Navrangoli</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>🌟 Navrangoli 🌟</h2>
+            <p>Connecting hearts across languages, building trust through quality</p>
+            <p class="subtitle">"Unity in Diversity - Your trust is our strength"</p>
+        </div>
+    </div>
+</body>
+</html>
