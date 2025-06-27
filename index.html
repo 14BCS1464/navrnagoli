@@ -15,9 +15,9 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+            background: linear-gradient(-45deg, #FF9933, #FF6600, #FF7722, #FFA500, #FF8C00, #FFFFFF, #F8F9FA, #FFFFFF, #138808, #0F7A05, #228B22, #FF9933);
             background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+            animation: gradientShift 8s ease infinite;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
@@ -122,20 +122,21 @@
         .header h1 {
             font-size: 4.5rem;
             font-weight: 800;
-            background: linear-gradient(45deg, #fff, #f8f9fa, #e9ecef);
+            background: linear-gradient(45deg, #FF9933, #FF6600, #FFA500, #FFFFFF, #138808);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 30px rgba(255,255,255,0.5);
+            color: #FF9933; /* Fallback color - saffron from Indian flag */
+            text-shadow: 0 0 30px rgba(255,153,51,0.8);
             margin-bottom: 20px;
             letter-spacing: -2px;
         }
 
         .header p {
             font-size: 1.4rem;
-            color: rgba(255,255,255,0.9);
-            font-weight: 300;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            color: #138808; /* Green from Indian flag */
+            font-weight: 500;
+            text-shadow: 0 2px 10px rgba(19,136,8,0.6);
         }
 
         .languages-grid {
@@ -183,7 +184,7 @@
             left: 0;
             right: 0;
             height: 6px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24, #e056fd);
+            background: linear-gradient(90deg, #FF9933, #FF6600, #FFA500, #FFFFFF, #138808, #FF9933);
             border-radius: 25px 25px 0 0;
         }
 
@@ -202,14 +203,14 @@
             margin-bottom: 25px;
             font-size: 1.6rem;
             font-weight: 700;
-            color: #ffffff;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            color: #FF9933; /* Saffron from Indian flag */
+            text-shadow: 0 2px 10px rgba(255,153,51,0.6);
         }
 
         .flag {
             font-size: 2.5rem;
             margin-right: 20px;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
             animation: bounce 2s infinite;
         }
 
@@ -227,20 +228,21 @@
 
         .message {
             line-height: 1.9;
-            color: #ffffff;
+            color: #138808; /* Green from Indian flag */
             font-size: 1.15rem;
             text-align: justify;
-            font-weight: 400;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            font-weight: 500;
+            text-shadow: 0 2px 8px rgba(19,136,8,0.4);
             margin-bottom: 20px;
         }
 
         .highlight {
             font-weight: 700;
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            background: linear-gradient(45deg, #FF9933, #FF6600, #FFA500, #138808);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            color: #FF9933; /* Fallback color - saffron */
             font-size: 1.2em;
             text-shadow: none;
             animation: glow 2s ease-in-out infinite alternate;
@@ -248,20 +250,20 @@
 
         @keyframes glow {
             from {
-                filter: drop-shadow(0 0 5px rgba(255, 107, 107, 0.5));
+                filter: drop-shadow(0 0 5px rgba(255, 153, 51, 0.5));
             }
             to {
-                filter: drop-shadow(0 0 15px rgba(255, 107, 107, 0.8));
+                filter: drop-shadow(0 0 15px rgba(19, 136, 8, 0.8));
             }
         }
 
         .signature {
             text-align: right;
             font-style: italic;
-            color: rgba(255, 255, 255, 0.8);
+            color: #FF9933; /* Saffron from Indian flag */
             font-size: 1.1rem;
-            font-weight: 500;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            font-weight: 600;
+            text-shadow: 0 2px 8px rgba(255,153,51,0.4);
         }
 
         .footer {
@@ -278,10 +280,11 @@
         .footer h2 {
             font-size: 3rem;
             font-weight: 800;
-            background: linear-gradient(45deg, #ffd93d, #ff6b6b, #4ecdc4);
+            background: linear-gradient(45deg, #FF9933, #FF6600, #FFA500, #FFFFFF, #138808);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            color: #FF9933; /* Fallback color - saffron */
             margin-bottom: 20px;
             animation: colorShift 3s ease-in-out infinite;
         }
@@ -293,9 +296,9 @@
 
         .footer p {
             font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 400;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            color: #138808; /* Green from Indian flag */
+            font-weight: 500;
+            text-shadow: 0 2px 10px rgba(19,136,8,0.5);
         }
 
         .footer .subtitle {
@@ -351,27 +354,27 @@
 
         .heart-decoration {
             display: inline-block;
-            color: #ff6b6b;
+            color: #FF9933;
             font-size: 1.2em;
             margin: 0 10px;
             animation: heartbeat 2s ease-in-out infinite;
-            filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.6));
+            filter: drop-shadow(0 0 10px rgba(255, 153, 51, 0.6));
         }
 
         @keyframes heartbeat {
             0%, 100% { 
                 transform: scale(1);
-                filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.6));
+                filter: drop-shadow(0 0 10px rgba(255, 153, 51, 0.6));
             }
             50% { 
                 transform: scale(1.2);
-                filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.9));
+                filter: drop-shadow(0 0 20px rgba(255, 153, 51, 0.9));
             }
         }
 
         .sparkle {
             position: absolute;
-            color: #ffd93d;
+            color: #FF9933;
             font-size: 1.5rem;
             animation: sparkle 3s ease-in-out infinite;
         }
